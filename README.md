@@ -22,3 +22,21 @@ This project demonstrates how to deploy a modern static shopping website using D
 - AWS EC2 (Ubuntu)
 
 ## 📂 Project Structure
+## CI/CD Workflow
+
+GitHub Repository
+        │
+        ▼
+Jenkins Pipeline
+        │
+        ▼
+Docker Image Build
+        │
+        ▼
+Docker Container Deployment
+        │
+        ▼
+AWS EC2
+        │
+        ▼
+Live Shopping Website
