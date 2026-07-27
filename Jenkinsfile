@@ -17,16 +17,16 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
+                sh 'docker build -t ${IMAGE_NAME} .'
             }
         }
 
         stage('Deploy Website') {
             steps {
                 sh '''
-                docker stop $CONTAINER_NAME || true
-                docker rm $CONTAINER_NAME || true
-                docker run -d --name $CONTAINER_NAME -p 80:80 $IMAGE_NAME
+                    docker stop ${CONTAINER_NAME} || true
+                    docker rm ${CONTAINER_NAME} || true
+                    docker run -d --name ${CONTAINER_NAME} -p 80:80 ${IMAGE_NAME}
                 '''
             }
         }
@@ -36,8 +36,9 @@ pipeline {
         success {
             echo 'Website deployed successfully!'
         }
+
         failure {
             echo 'Deployment failed!'
         }
     }
-}=
+}
